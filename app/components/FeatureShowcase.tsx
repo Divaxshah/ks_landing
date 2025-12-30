@@ -191,12 +191,16 @@ export default function FeatureShowcase() {
                         <div className="demo-header">
                             <h3>Grammar Check</h3>
                             <button
-                                className="btn-small"
+                                className="fix-all-btn"
                                 onClick={() => setGrammarFixed(true)}
                                 disabled={grammarFixed}
-                                style={{ opacity: grammarFixed ? 0.5 : 1, cursor: grammarFixed ? 'default' : 'pointer' }}
                             >
-                                {grammarFixed ? "All Fixed" : "Fix All Errors"}
+                                {grammarFixed ? (
+                                    <>
+                                        <CheckIcon />
+                                        All Fixed
+                                    </>
+                                ) : "Fix All Errors"}
                             </button>
                         </div>
                         <div className="demo-content">
@@ -322,7 +326,6 @@ export default function FeatureShowcase() {
                                                 }}
                                             >
                                                 {lang}
-                                                {translateLang === lang && <CheckIcon />}
                                             </button>
                                         ))}
                                     </div>
@@ -733,10 +736,38 @@ export default function FeatureShowcase() {
                 background: var(--bg-secondary);
             }
 
-            .dropdown-item svg {
-                width: 16px;
-                height: 16px;
-                stroke: var(--accent-primary);
+            .fix-all-btn {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 16px;
+                background: var(--bg-secondary);
+                color: var(--text-primary);
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                font-family: var(--font-body);
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+            .fix-all-btn:hover:not(:disabled) {
+                border-color: var(--accent-primary);
+                color: var(--accent-primary);
+                background: var(--card-bg);
+            }
+            .fix-all-btn:disabled {
+                background: rgba(76, 175, 80, 0.1);
+                border-color: transparent;
+                color: #2e7d32;
+                cursor: default;
+            }
+            [data-theme='dark'] .fix-all-btn:disabled {
+                color: #81c784;
+            }
+            .fix-all-btn svg {
+                width: 14px;
+                height: 14px;
             }
 
             .btn-icon:hover {
