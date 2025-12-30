@@ -1805,9 +1805,13 @@ a {
 }
 
 .tool-page-hero .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
+  gap: 0;
 }
 
 .tool-page-hero .tool-icon {
@@ -2002,8 +2006,142 @@ a {
   text-align: center;
 }
 
-.mt-40 {
-  margin-top: 40px;
+/* Tool Specific Outputs */
+.ai-result {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ai-score-bar {
+  width: 100%;
+  height: 48px;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ai-score {
+  height: 100%;
+  background-color: #EF4444;
+  /* AI Red */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ai-text-analysis {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.highlight-ai {
+  background-color: rgba(239, 68, 68, 0.2);
+  border-bottom: 2px solid #EF4444;
+  padding: 2px 0;
+}
+
+.highlight-mixed {
+  background-color: rgba(245, 158, 11, 0.2);
+  border-bottom: 2px solid #F59E0B;
+  padding: 2px 0;
+}
+
+.grammar-result {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.grammar-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.metric-card {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metric-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.metric-value {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.score-good .metric-value {
+  color: #10B981;
+}
+
+.highlight-error {
+  text-decoration: underline wavy #EF4444;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.citation-box {
+  background-color: var(--bg-secondary);
+  padding: 24px;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent-primary);
+  font-family: var(--font-body);
+}
+
+.btn-copy {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-copy:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.workspace-select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.workspace-select:focus {
+  border-color: var(--accent-primary);
+}
+
+@media (max-width: 768px) {
+  .grammar-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .mb-20 {
