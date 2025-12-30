@@ -773,6 +773,32 @@ export default function FeatureShowcase() {
             .btn-icon:hover {
                 color: var(--accent-primary);
             }
+
+            @media (max-width: 768px) {
+                .demo-split {
+                    grid-template-columns: 1fr;
+                }
+                .demo-container {
+                    padding: 24px 20px;
+                }
+                .demo-header {
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 16px;
+                }
+                .showcase-nav {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    overflow-x: visible;
+                    gap: 12px;
+                }
+                .showcase-nav-item {
+                    font-size: 13px;
+                    padding: 8px 16px;
+                    width: auto;
+                }
+            }
         `}</style>
         </div>
     );
