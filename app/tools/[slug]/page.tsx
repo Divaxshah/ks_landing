@@ -258,7 +258,7 @@ export default function ToolPage() {
                     <div className="hero-content">
                         <div className="tool-icon">{toolIcons[slug] && React.createElement(toolIcons[slug])}</div>
                         <h1>{tool.name}</h1>
-                        <p style={{ fontSize: "20px", maxWidth: "700px", margin: "0 auto" }}>
+                        <p className="tool-hero-description">
                             {tool.longDescription}
                         </p>
                     </div>
@@ -274,7 +274,7 @@ export default function ToolPage() {
                                 <div className="tool-icon">{toolIcons[slug] && React.createElement(toolIcons[slug])}</div>
                                 <span style={{ fontWeight: 600 }}>{tool.name}</span>
                             </div>
-                            <div style={{ marginLeft: "auto", display: "flex", gap: "8px" }}>
+                            <div className="workspace-header-features">
                                 {tool.features.slice(0, 2).map((feature, i) => (
                                     <span
                                         key={i}
@@ -292,10 +292,10 @@ export default function ToolPage() {
                             </div>
                         </div>
 
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "400px" }}>
+                        <div className="workspace-grid">
                             {/* Input */}
-                            <div style={{ borderRight: "1px solid var(--card-border)" }}>
-                                <div style={{ padding: "16px 32px", borderBottom: "1px solid var(--card-border)", fontSize: "14px", fontWeight: 600, color: "var(--text-muted)" }}>
+                            <div className="workspace-input-wrapper">
+                                <div className="workspace-label">
                                     INPUT
                                 </div>
                                 <textarea
@@ -308,11 +308,14 @@ export default function ToolPage() {
                             </div>
 
                             {/* Output */}
-                            <div>
-                                <div style={{ padding: "16px 32px", borderBottom: "1px solid var(--card-border)", fontSize: "14px", fontWeight: 600, color: "var(--text-muted)" }}>
+                            <div className="workspace-output-wrapper">
+                                <div className="workspace-label">
                                     OUTPUT
                                 </div>
-                                <div style={{ padding: "32px", minHeight: "350px", color: outputText ? "var(--text-primary)" : "var(--text-muted)", fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.8 }}>
+                                <div
+                                    className="workspace-output-content"
+                                    style={{ color: outputText ? "var(--text-primary)" : "var(--text-muted)" }}
+                                >
                                     {isProcessing ? (
                                         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                                             <div className="spinner" style={{
@@ -334,7 +337,7 @@ export default function ToolPage() {
                             <span className="char-count">
                                 {inputText.length} characters · {inputText.split(/\s+/).filter(Boolean).length} words
                             </span>
-                            <div style={{ display: "flex", gap: "12px" }}>
+                            <div className="workspace-actions">
                                 <button
                                     className="btn btn-secondary"
                                     onClick={() => { setInputText(""); setOutputText(""); }}
@@ -358,40 +361,23 @@ export default function ToolPage() {
             </section>
 
             {/* Features Grid */}
-            <section style={{ padding: "80px 0" }}>
+            <section className="tool-features">
                 <div className="container">
-                    <div className="section-header" style={{ marginBottom: "60px" }}>
+                    <div className="section-header">
                         <span className="section-label">Features</span>
                         <h2>Everything You Need</h2>
                     </div>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px" }}>
+                    <div className="features-grid-tools">
                         {tool.features.map((feature, index) => (
                             <div
                                 key={index}
-                                style={{
-                                    padding: "32px",
-                                    background: "var(--card-bg)",
-                                    border: "1px solid var(--card-border)",
-                                    borderRadius: "16px",
-                                    textAlign: "center"
-                                }}
+                                className="feature-card-tool"
                             >
-                                <div style={{
-                                    width: "56px",
-                                    height: "56px",
-                                    borderRadius: "14px",
-                                    background: "var(--bg-secondary)",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    margin: "0 auto 16px",
-                                    fontSize: "24px",
-                                    color: "var(--accent-primary)"
-                                }}>
+                                <div className="feature-card-icon">
                                     ✓
                                 </div>
-                                <p style={{ fontSize: "16px", fontWeight: 500, color: "var(--text-primary)" }}>{feature}</p>
+                                <p className="feature-card-text">{feature}</p>
                             </div>
                         ))}
                     </div>
@@ -399,14 +385,14 @@ export default function ToolPage() {
             </section>
 
             {/* Other Tools */}
-            <section style={{ padding: "80px 0", background: "var(--bg-secondary)" }}>
+            <section className="tool-more">
                 <div className="container">
-                    <div className="section-header" style={{ marginBottom: "60px" }}>
+                    <div className="section-header">
                         <span className="section-label">More Tools</span>
                         <h2>Explore Other Tools</h2>
                     </div>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
+                    <div className="other-tools-grid">
                         {Object.entries(toolsData)
                             .filter(([key]) => key !== slug)
                             .slice(0, 3)
