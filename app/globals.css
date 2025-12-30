@@ -1081,7 +1081,7 @@ a {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
   gap: 60px;
   padding-bottom: 80px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "lenis/dist/lenis.css";
+import SmoothScroll from "./components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "KreativeSpace | AI-Powered Writing Tools",
@@ -39,8 +41,9 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <SmoothScroll />
         {children}
       </body>
-    </html>
+    </html >
   );
 }
